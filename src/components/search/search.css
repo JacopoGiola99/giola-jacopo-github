@@ -1,0 +1,21 @@
+.search {
+    border-style:solid;
+    border-width: 3px;
+    border-color: rgb(207, 221, 11);
+    width: 290px;
+    margin-top: 2%;
+    margin-bottom: 5%;
+    margin-left: 50%;
+    float: left;
+}
+
+button {
+    margin: 10px;
+    margin-left: 20px;
+    float: left;
+}
+
+input {
+    margin: 10px;
+    float: left;
+}

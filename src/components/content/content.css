@@ -3,7 +3,7 @@
     border-width: 3px;
     border-color: brown;
     width: 90%;
-    height: 500px;
+    height: fit-content;
     margin-top: 2%;
     margin-bottom: 2%;
     margin-left: 5%;
