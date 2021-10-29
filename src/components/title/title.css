@@ -1,0 +1,10 @@
+.title {
+    border-style:solid;
+    border-width: 3px;
+    border-color: rgb(42, 165, 48);
+    width: 90%;
+    height: 100px;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: 5%;
+}
