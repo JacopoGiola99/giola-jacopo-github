@@ -1,4 +1,4 @@
-.search {
+.filter {
     border-style:solid;
     border-width: 3px;
     border-color: rgb(207, 221, 11);
@@ -9,13 +9,8 @@
     float: left;
 }
 
-button {
+select {
     margin: 10px;
-    margin-left: 20px;
-    float: left;
-}
-
-input {
-    margin: 10px;
+    margin-left: 35px;
     float: left;
 }

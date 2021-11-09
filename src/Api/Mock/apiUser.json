@@ -1,0 +1,23 @@
+{
+    "students": [
+        {
+            "surname": "Giola",
+            "name": "Jacopo",
+            "login": "JacopoGiola99",
+            "repos": [
+                "https://api.github.com/repos/JacopoGiola99/giola-jacopo-github"
+            ],
+            "class": "Full-Stack-Developer 2020/2021"
+        },
+        {
+            "surname": "Casiraghi",
+            "name": "Davide",
+            "login": "davidec2k",
+            "repos": [
+                "https://api.github.com/repos/davidec2k/casiraghi-davide-github"
+            ],
+            "class": "Full-Stack-Developer 2020/2021"
+        }
+        
+    ]
+}
