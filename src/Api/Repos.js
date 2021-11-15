@@ -24,13 +24,12 @@ const merge = () => {
         })
 
     })
-    console.log(result);
     return result;}
 
-const listRepos = () => {
+export const listRepos = () => {
     const DataObj = []
     merge().forEach(element => DataObj.push(element))
     return DataObj;
 }
 
-export default listRepos;
+//export default listRepos;

@@ -2,15 +2,20 @@
     border-collapse: collapse;
 }
 .tableCont {
-    width: 90%;
-    margin-left: 15%;
+    margin-right: 15%;
     margin-bottom: 5%;
 }
 table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
-    padding: 10px;
+    padding: 5px;
 }
 th {
     background-color: blue;
+}
+.original {
+    background-color: rgb(192, 165, 165);
+}
+.copy {
+    background-color: rgb(202, 113, 91);
 }

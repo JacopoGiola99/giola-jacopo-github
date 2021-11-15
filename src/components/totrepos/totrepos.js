@@ -1,9 +1,9 @@
 import './totrepos.css';
 
-const Totrepos = () => {
+const Totrepos = (Props) => {
     return (
         <div className='totrepos'>
-            <p>Totale repos: 10</p>
+            <p>Totale repos: {Props.Totrepos}</p>
         </div>
     )
 }

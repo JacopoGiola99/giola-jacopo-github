@@ -1,7 +1,7 @@
 import './App.css';
 import Content from './components/content/content'
 import Title from './components/title/title';
-import listRepos from './Api/Repos';
+import {listRepos} from './Api/Repos';
 
 function App() {
   listRepos();
