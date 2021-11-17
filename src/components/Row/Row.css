@@ -1,0 +1,11 @@
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+}
+.row {
+    background-color: rgb(192, 165, 165);
+}
+.information {
+    background-color: rgb(202, 113, 91);
+}
