@@ -3,29 +3,32 @@ import { useState } from 'react';
 
 const Row = (props) => {
     const [isOpen, setIsOpen] = useState(false);
-    //console.log(props.surname);
+
+    const handleClick = () => {
+        setIsOpen(!isOpen);
+    }
 
     return (
         <tbody>
-            <tr className="original">
+            <tr className="row">
                 <td>{props.repos.surname}</td>
                 <td>{props.repos.name}</td>
-                <td>{props.repos.github_user}</td>
-                <td>{props.repos.repo_name}</td>
-                <td>3</td>
-                <td>{props.repos.creation_date}</td>
-                <td>{props.repos.last_update}</td>
-                <td><button onClick={() => setIsOpen(!isOpen)}>{isOpen ? 'Nascondi' : 'Mostra'} dettagli</button></td>
+                <td>{props.repos.login}</td>
+                <td>{props.repos.repoName}</td>
+                <td>4</td>
+                <td>{props.repos.creationDate}</td>
+                <td>{props.repos.lastUpdate}</td>
+                <td><button onClick={() => handleClick()}>{isOpen ? 'Nascondi' : 'Mostra'} dettagli</button></td>
             </tr>
             {isOpen &&
-                <tr className="copy">
+                <tr className="information">
                     <td>{props.repos.surname}</td>
                     <td>{props.repos.name}</td>
-                    <td>{props.repos.github_user}</td>
-                    <td>{props.repos.repo_name}</td>
-                    <td>3</td>
-                    <td>{props.repos.creation_date}</td>
-                    <td>{props.repos.last_update}</td>
+                    <td>{props.repos.login}</td>
+                    <td>{props.repos.repoName}</td>
+                    <td>4</td>
+                    <td>{props.repos.creationDate}</td>
+                    <td>{props.repos.lastUpdate}</td>
                     <td></td>
                 </tr>
             }
@@ -36,7 +39,6 @@ const Row = (props) => {
 const Mapping = (props) => {
 
     const mapp = props.repos.map((student, id) => {
-        console.log(props.repos[id].name);
         return (
             <Row key={id} repos={props.repos[id]}/>
         )
@@ -46,7 +48,8 @@ const Mapping = (props) => {
 }
 
 const Table = (props) => {
-    //console.log(props.repos[0].surname)
+
+    // mapping
     return (
         <div className='tableCont'>
             <table>

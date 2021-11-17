@@ -3,17 +3,32 @@ import Totrepos from '../totrepos/totrepos';
 import Table from '../table/table';
 import Search from '../search/search';
 import Filter from '../filter/filter';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { listRepos } from '../../Api/Repos';
 
 const Content = () => {
-    const [repos, useRepos] = useState(listRepos())
+    const [repos, setRepos] = useState(undefined);
+
+    useEffect(() => {
+        const populateRepos = async () => {
+            setRepos(await listRepos());
+        };
+        populateRepos();
+        console.log("On amount del componente")
+    }, [])
+
     return (
-        <div className='content'>
-            <Totrepos Totrepos={repos.length} />
-            <Filter />
-            <Search />
-            <Table repos={repos}/>
+        <div>
+            {repos && (
+                <div>
+                    <div className='content'>
+                        <Totrepos Totrepos={repos.length} />
+                        <Filter />
+                        <Search />
+                        <Table repos={repos} />
+                    </div>
+                </div>)
+            }
         </div>
     )
 }

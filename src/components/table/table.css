@@ -12,10 +12,11 @@ table, th, td {
 }
 th {
     background-color: blue;
+    color: whitesmoke;
 }
-.original {
+.row {
     background-color: rgb(192, 165, 165);
 }
-.copy {
+.information {
     background-color: rgb(202, 113, 91);
 }
