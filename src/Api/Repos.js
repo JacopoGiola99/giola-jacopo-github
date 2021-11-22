@@ -1,5 +1,3 @@
-import dataGit from "./Mock/apiGit.json";
-import students from "./Mock/apiUser.json";
 import axios from "axios";
 
 export const listRepos = async () =>{

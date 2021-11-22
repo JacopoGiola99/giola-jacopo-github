@@ -1,11 +1,23 @@
 import './Row.css';
 import { useState } from 'react';
+import { DateTime } from "luxon";
 
 const Row = (props) => {
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(props.arrayDettagli);
 
     const handleClick = () => {
         setIsOpen(!isOpen);
+        //props.setArrayDettagli(!props.ArrayDettagli);
+    }
+
+    // Data formato italiano  
+    function formatDateCreation (date){
+        const result = DateTime.fromISO(date).setLocale('it').toFormat('dd LLLL yyyy');
+        return result;
+    }   
+    function formatDateUpdate (date){
+        const result = DateTime.fromISO(date).setLocale('it').toFormat('dd LLLL yyyy HH:mm');
+        return result;
     }
 
     return (
@@ -15,9 +27,9 @@ const Row = (props) => {
                 <td>{props.repos.name}</td>
                 <td>{props.repos.login}</td>
                 <td>{props.repos.repoName}</td>
-                <td>4</td>
-                <td>{props.repos.creationDate}</td>
-                <td>{props.repos.lastUpdate}</td>
+                <td>{props.commit}</td>
+                <td>{formatDateCreation(props.repos.creationDate)}</td>
+                <td>{formatDateUpdate(props.repos.lastUpdate)}</td>
                 <td><button onClick={() => handleClick()}>{isOpen ? 'Nascondi' : 'Mostra'} dettagli</button></td>
             </tr>
             {isOpen &&
@@ -26,9 +38,9 @@ const Row = (props) => {
                     <td>{props.repos.name}</td>
                     <td>{props.repos.login}</td>
                     <td>{props.repos.repoName}</td>
-                    <td>4</td>
-                    <td>{props.repos.creationDate}</td>
-                    <td>{props.repos.lastUpdate}</td>
+                    <td>{props.commit}</td>
+                    <td>{formatDateCreation(props.repos.creationDate)}</td>
+                    <td>{formatDateUpdate(props.repos.lastUpdate)}</td>
                     <td></td>
                 </tr>
             }

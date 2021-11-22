@@ -8,14 +8,22 @@ import { listRepos } from '../../Api/Repos';
 
 const Content = () => {
     const [repos, setRepos] = useState(undefined);
+    const [commit, setCommit] = useState(0);
 
     useEffect(() => {
         const populateRepos = async () => {
             setRepos(await listRepos());
         };
         populateRepos();
-        console.log("On amount del componente")
     }, [])
+
+    const handleLoadClick = (commit) => {
+        const populateRepos = async () => {
+            setRepos(await listRepos());
+            setCommit(commit + 1);
+        };
+        populateRepos();
+    }
 
     return (
         <div>
@@ -25,7 +33,8 @@ const Content = () => {
                         <Totrepos Totrepos={repos.length} />
                         <Filter />
                         <Search />
-                        <Table repos={repos} />
+                        <button onClick={() => handleLoadClick(commit)}>Aggiorna Repos</button>
+                        <Table repos={repos} commit={commit} />
                     </div>
                 </div>)
             }
