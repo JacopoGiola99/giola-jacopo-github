@@ -1,6 +1,6 @@
 import './content.css';
 import Totrepos from '../totrepos/totrepos';
-import Table from '../table/table';
+import BigTable from '../table/table';
 import Search from '../search/search';
 import Filter from '../filter/filter';
 import { useState, useEffect } from 'react';
@@ -34,7 +34,7 @@ const Content = () => {
                         <Filter />
                         <Search />
                         <button onClick={() => handleLoadClick(commit)}>Aggiorna Repos</button>
-                        <Table repos={repos} commit={commit} />
+                        <BigTable repos={repos} commit={commit} />
                     </div>
                 </div>)
             }
