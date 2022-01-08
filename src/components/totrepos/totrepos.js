@@ -1,9 +1,11 @@
-import './totrepos.css';
+import Box from '@mui/material/Box';
 
-const Totrepos = (Props) => {
+const Totrepos = (props) => {
     return (
         <div className='totrepos'>
-            <p>Totale repos: {Props.Totrepos}</p>
+            <Box component="span" sx={{ p: 2, padding:'5%' }}>
+                Totale repos: {props.totRepos}
+            </Box>
         </div>
     )
 }

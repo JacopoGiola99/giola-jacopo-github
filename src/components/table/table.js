@@ -1,6 +1,4 @@
-//import './table.css';
 import { useState, useEffect } from 'react';
-//import Row from '../Row/Row';
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import Box from '@mui/material/Box';
@@ -15,27 +13,6 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-
-// const handleCloseAllClick = (arrayDettagli, setArrayDettagli) => {
-//     console.log(arrayDettagli);
-//     arrayDettagli.forEach(element =>{
-//         element = false;
-//     })
-//     console.log(arrayDettagli);
-// }
-
-// const CreateArray = (props) => {
-//     const [arrayDettagli, setArrayDettagli] = useState([]);
-
-//     const repos2 = props.repos;
-//     useEffect((arrayDettagli, repos2) => {
-//         repos2.forEach(element => {
-//             setArrayDettagli(arrayDettagli.concat(false));
-//             console.log(arrayDettagli);
-//             return arrayDettagli;
-//         })
-//     }, [])
-// }
 
 const createData = (cognome, nome, utenteGithub, nomeRepo, totaleCommit, dataCreazione, ultimoAggiornamento) => {
     return {
@@ -86,26 +63,24 @@ const Row = (props) => {
                 </TableCell>
             </TableRow>
             <TableRow>
-                <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={8}>
-                    <Collapse in={open} timeout="auto" unmountOnExit sx={{ background: 'orange' }} >
-                        <Box sx={{ margin: 1 }}>
-                            <Table size="small" aria-label="dettagli" sx={{ background: 'red' }}>
-                                <TableBody>
-                                    {row.dettagli.map((dettagliRow) => (
-                                        <TableRow key={dettagliRow.date}>
-                                            <TableCell align="left">{dettagliRow.cognome}</TableCell>
-                                            <TableCell align="left">{dettagliRow.nome}</TableCell>
-                                            <TableCell align="left">{dettagliRow.utenteGithub}</TableCell>
-                                            <TableCell align="left">{dettagliRow.nomeRepo}</TableCell>
-                                            <TableCell align="left">{totCommit}</TableCell>
-                                            <TableCell align="left">{dettagliRow.dataCreazione}</TableCell>
-                                            <TableCell align="left">{dettagliRow.ultimoAggiornamento}</TableCell>
-                                            <TableCell align="left"></TableCell>
-                                        </TableRow>
-                                    ))}
-                                </TableBody>
-                            </Table>
-                        </Box>
+                <TableCell style={{ paddingBottom: 0, paddingTop: 0, background: 'orange' }} colSpan={8} >
+                    <Collapse in={open} timeout="auto" unmountOnExit >
+                        <Table aria-label="dettagli" >
+                            <TableBody>
+                                {row.dettagli.map((dettagliRow) => (
+                                    <TableRow key={dettagliRow.date}>
+                                        <TableCell align="left">{dettagliRow.cognome}</TableCell>
+                                        <TableCell align="left">{dettagliRow.nome}</TableCell>
+                                        <TableCell align="left">{dettagliRow.utenteGithub}</TableCell>
+                                        <TableCell align="left">{dettagliRow.nomeRepo}</TableCell>
+                                        <TableCell align="left">{totCommit}</TableCell>
+                                        <TableCell align="left">{dettagliRow.dataCreazione}</TableCell>
+                                        <TableCell align="left">{dettagliRow.ultimoAggiornamento}</TableCell>
+                                        <TableCell align="left"></TableCell>
+                                    </TableRow>
+                                ))}
+                            </TableBody>
+                        </Table>
                     </Collapse>
                 </TableCell>
             </TableRow>
@@ -132,7 +107,7 @@ Row.propTypes = {
                 dataCreazione: PropTypes.string.isRequired,
                 ultimoAggiornamento: PropTypes.string.isRequired,
             }),
-        ),//.isRequired,
+        ),
     }).isRequired,
 };
 
@@ -159,37 +134,7 @@ const BigTable = (props) => {
 
     const rows = CreateRows(repos, commit);
 
-    // const [arrayDettagli, setArrayDettagli] = useState([]);
-
-    // const mapp = props.repos.map((student, id) => {
-    //     return (
-    //         <Row key={id} repos={props.repos[id]} commit={props.commit} arrayDettagli={arrayDettagli[id]} setArrayDettagli={setArrayDettagli[id]} />
-    //     )
-    // });
-
     return (
-        //     <div>
-        //         {/* <button onClick={() => handleCloseAllClick(arrayDettagli, setArrayDettagli)}>Chiudi tutti i dettagli</button> */}
-        //         <div className='tableCont'>
-
-        //             <table>
-        //                 <tbody>
-        //                     <tr>
-        //                         <th>Cognome</th>
-        //                         <th>Nome</th>
-        //                         <th>Utente githb</th>
-        //                         <th>Nome repo</th>
-        //                         <th>Totale commit</th>
-        //                         <th>Data creazione</th>
-        //                         <th>Ultimo aggiornamento</th>
-        //                         <th>Informazioni aggiuntive</th>
-        //                     </tr>
-        //                 </tbody>
-        //                 {mapp}
-        //             </table>
-        //         </div>
-        //     </div>
-
         <TableContainer component={Paper}>
             <Table aria-label="collapsible table">
                 <TableHead>
