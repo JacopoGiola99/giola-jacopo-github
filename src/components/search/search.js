@@ -1,12 +1,12 @@
 import TextField from '@mui/material/TextField';
-import { Button } from '@mui/material';
+import { IconButton } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 
 const Search = () => {
     return (
         <div className='search'>
             <TextField id="searchButton" label="Cerca" />
-            <Button variant="outlined" startIcon={<SearchIcon fontSize='large'/>} sx={{float: 'right', padding:'2%'}}></Button>
+            <IconButton variant="outlined" sx={{float: 'right', padding:'4%'}}><SearchIcon fontSize="large" /></IconButton>
         </div>
     )
 }

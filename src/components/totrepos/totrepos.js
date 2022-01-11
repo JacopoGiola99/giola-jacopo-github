@@ -1,11 +1,11 @@
-import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
 
 const Totrepos = (props) => {
     return (
         <div className='totrepos'>
-            <Box component="span" sx={{ p: 2, padding:'5%' }}>
+            <Container sx={{ paddingTop: '5%' }} >
                 Totale repos: {props.totRepos}
-            </Box>
+            </Container>
         </div>
     )
 }

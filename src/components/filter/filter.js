@@ -20,7 +20,7 @@ const Filter = () => {
                 }}
                 id="controllable-states-demo"
                 options={options}
-                sx={{ width: 300, marginBottom: '15%', marginLeft: '5%' }}
+                sx={{ width: '90%', marginLeft: '5%'}}
                 renderInput={(params) => <TextField {...params} label="Classi" />}
             />
         </div>

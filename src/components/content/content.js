@@ -15,7 +15,7 @@ const Item = (props) => {
     return (
         <Box
             sx={{
-                bgcolor: 'orange',
+                bgcolor: 'rgb(143, 179, 126)',
                 color: 'black',
                 p: 1,
                 borderRadius: 1,
@@ -57,13 +57,14 @@ const Content = () => {
                             sx={{
                                 display: 'grid',
                                 gridAutoColumns: '1fr',
-                                gap: 1,
+                                gap: 4,
+                                marginBottom: '3%'
                             }}
                         >
-                            <Item sx={{ gridRow: '1', gridColumn: '1/2', width: '40%', padding: '5%', maxHeight: '35%', minWidth: '80%' }}><Totrepos totRepos={repos.length} /></Item>
-                            <Item sx={{ gridRow: '1', gridColumn: '2/3', width: '40%', padding: '5%', maxHeight: '35%', minWidth: '80%' }}><Filter /></Item>
-                            <Item sx={{ gridRow: '1', gridColumn: '3/4', width: '40%', padding: '5%', maxHeight: '35%', minWidth: '80%' }}><Search /></Item>
-                            <Item sx={{ gridRow: '2', gridColumn: '2/3', width: '40%', padding: '5%', maxHeight: '35%', minWidth: '80%', marginBottom: '3%' }}><Button variant="outlined" startIcon={<UpdateIcon />} onClick={() => handleLoadClick(commit)}>Aggiorna Repos</Button></Item>
+                            <Item sx={{ gridRow: '1', gridColumn: '1/2', padding: '5%' }}><Totrepos totRepos={repos.length} /></Item>
+                            <Item sx={{ gridRow: '1', gridColumn: '2/3', padding: '5%' }}><Filter /></Item>
+                            <Item sx={{ gridRow: '1', gridColumn: '3/4', padding: '5%' }}><Search /></Item>
+                            <Item sx={{ gridRow: '2', gridColumn: '2/3', padding: '5%' }}><Button variant="outlined" sx={{color: 'black', borderColor: 'black' }} startIcon={<UpdateIcon />} onClick={() => handleLoadClick(commit)}>Aggiorna Repos</Button></Item>
                         </Box>
                         <BigTable repos={repos} commit={commit} />
 

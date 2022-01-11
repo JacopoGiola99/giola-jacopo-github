@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import Box from '@mui/material/Box';
 import Collapse from '@mui/material/Collapse';
 import IconButton from '@mui/material/IconButton';
 import Table from '@mui/material/Table';
@@ -14,7 +13,7 @@ import Paper from '@mui/material/Paper';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
-const createData = (cognome, nome, utenteGithub, nomeRepo, totaleCommit, dataCreazione, ultimoAggiornamento) => {
+const createData = (cognome, nome, utenteGithub, nomeRepo, totaleCommit, dataCreazione, ultimoAggiornamento, id) => {
     return {
         cognome,
         nome,
@@ -23,6 +22,7 @@ const createData = (cognome, nome, utenteGithub, nomeRepo, totaleCommit, dataCre
         totaleCommit,
         dataCreazione,
         ultimoAggiornamento,
+        id,
         dettagli: [
             {
                 cognome,
@@ -37,14 +37,15 @@ const createData = (cognome, nome, utenteGithub, nomeRepo, totaleCommit, dataCre
     };
 }
 
-const Row = (props) => {
+const Row = (props, key) => {
     const { row } = props;
     const totCommit = props.commit;
     const [open, setOpen] = React.useState(false);
+    const id = props.row.id;
 
     return (
         <React.Fragment>
-            <TableRow sx={{ '& > *': { borderBottom: 'unset', background: 'green' } }}>
+            <TableRow key={id} sx={{ '& > *': { borderBottom: 'unset', background: 'rgb(0, 151, 121)' } }}>
                 <TableCell align="left">{row.cognome}</TableCell>
                 <TableCell align="left">{row.nome}</TableCell>
                 <TableCell align="left">{row.utenteGithub}</TableCell>
@@ -63,7 +64,7 @@ const Row = (props) => {
                 </TableCell>
             </TableRow>
             <TableRow>
-                <TableCell style={{ paddingBottom: 0, paddingTop: 0, background: 'orange' }} colSpan={8} >
+                <TableCell style={{ paddingBottom: 0, paddingTop: 0, background: 'rgb(222, 142, 73)' }} colSpan={8} >
                     <Collapse in={open} timeout="auto" unmountOnExit >
                         <Table aria-label="dettagli" >
                             <TableBody>
@@ -97,6 +98,7 @@ Row.propTypes = {
         totaleCommit: PropTypes.number.isRequired,
         dataCreazione: PropTypes.string.isRequired,
         ultimoAggiornamento: PropTypes.string.isRequired,
+        id: PropTypes.number.isRequired,
         dattagli: PropTypes.arrayOf(
             PropTypes.shape({
                 cognome: PropTypes.string.isRequired,
@@ -123,10 +125,11 @@ const BigTable = (props) => {
 
         useEffect(() => {
             repos.map((repo, id) => {
-                let temp = createData(repos[id].surname, repos[id].name, repos[id].login, repos[id].repoName, commit, repos[id].creationDate, repos[id].lastUpdate);
+                let temp = createData(repo.surname, repo.name, repo.login, repo.repoName, commit, repo.creationDate, repo.lastUpdate, id);
                 setRow(row => [...row, temp]);
+                return console.log('ok');
             })
-        }, [])
+        }, [commit, repos])
 
         return row;
 
@@ -135,18 +138,18 @@ const BigTable = (props) => {
     const rows = CreateRows(repos, commit);
 
     return (
-        <TableContainer component={Paper}>
-            <Table aria-label="collapsible table">
-                <TableHead>
-                    <TableRow sx={{ background: 'blue' }}>
-                        <TableCell align="left">Cognome</TableCell>
-                        <TableCell align="left">Nome</TableCell>
-                        <TableCell align="left">utente Github</TableCell>
-                        <TableCell align="left">nome Repo</TableCell>
-                        <TableCell align="left">totale Commit</TableCell>
-                        <TableCell align="left">data Creazione</TableCell>
-                        <TableCell align="left">ultimo Aggiornamento</TableCell>
-                        <TableCell align="left">Mostra dettagli</TableCell>
+        <TableContainer component={Paper} >
+            <Table aria-label="collapsible table" >
+                <TableHead >
+                    <TableRow sx={{ background: 'rgb(8, 72, 135)' }}>
+                        <TableCell style={{ color: 'white' }} align="left">Cognome</TableCell>
+                        <TableCell style={{ color: 'white' }} align="left">Nome</TableCell>
+                        <TableCell style={{ color: 'white' }} align="left">utente Github</TableCell>
+                        <TableCell style={{ color: 'white' }} align="left">nome Repo</TableCell>
+                        <TableCell style={{ color: 'white' }} align="left">totale Commit</TableCell>
+                        <TableCell style={{ color: 'white' }} align="left">data Creazione</TableCell>
+                        <TableCell style={{ color: 'white' }} align="left">ultimo Aggiornamento</TableCell>
+                        <TableCell style={{ color: 'white' }} align="left">Mostra dettagli</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>

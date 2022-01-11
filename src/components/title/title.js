@@ -9,7 +9,7 @@ const Item = (props) => {
     return (
         <Box
             sx={{
-                bgcolor: 'primary.main',
+                bgcolor: 'rgb(247, 159, 121)',
                 color: 'black',
                 p: 1,
                 borderRadius: 1,
@@ -26,7 +26,7 @@ const Item = (props) => {
 const Title = () => {
     return (
         <div className='title'>
-            <Container sx={{ height: 'fit-content', border: '1px solid red', padding: '10px', minWidth: '90%' }}>
+            <Container sx={{ height: 'fit-content', border: '1px solid red', padding: '1%', minWidth: '90%'}}>
                 <Box
                     sx={{
                         display: 'grid',
@@ -34,7 +34,7 @@ const Title = () => {
                         gap: 1,
                     }}
                 >
-                    <Item sx={{ gridRow: '1', gridColumn: '0/1', width: '40%', padding: '5%', maxHeight: '35%', minWidth: '80%' }}>Logo</Item>
+                    <Item sx={{ gridRow: '1', gridColumn: '0/1', padding: '5%' }}>Logo</Item>
                     
                     <Item sx={{ gridRow: '1', gridColumn: '4 / 5' }}><ButtonTitle /></Item>
                 </Box>
