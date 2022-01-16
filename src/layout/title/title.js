@@ -1,6 +1,6 @@
 // import './title.css';
 // import Logo from '../logo/logo';
-import ButtonTitle from '../button-title/button-title';
+import ButtonTitle from '../../components/button-title/button-title';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 

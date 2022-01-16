@@ -1,10 +1,10 @@
 //import './content.css';
-import Totrepos from '../totrepos/totrepos';
-import BigTable from '../table/table';
-import Search from '../search/search';
-import Filter from '../filter/filter';
+import Totrepos from '../../components/totrepos/totrepos';
+import BigTable from '../../components/table/table';
+import Search from '../../components/search/search';
+import Filter from '../../components/filter/filter';
 import { useState, useEffect } from 'react';
-import { listRepos } from '../../Api/Repos';
+import { listRepos } from '../../api/Repos';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import { Button } from '@mui/material';

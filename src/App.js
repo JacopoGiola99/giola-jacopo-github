@@ -1,7 +1,7 @@
 //import './App.css';
-import Content from './components/content/content'
-import Title from './components/title/title';
-import { listRepos } from './Api/Repos';
+import Content from './pages/content/content'
+import Title from './layout/title/title';
+import { listRepos } from './api/Repos';
 import Container from '@mui/material/Container';
 
 function App() {
