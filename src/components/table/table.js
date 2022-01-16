@@ -47,7 +47,7 @@ const BigTable = (props) => {
             repos.map((repo, id) => {
                 let temp = createData(repo.surname, repo.name, repo.login, repo.repoName, commit, repo.creationDate, repo.lastUpdate, id);
                 setRow(row => [...row, temp]);
-                return console.log('ok');
+                return null;
             })
         }, [commit, repos])
 
@@ -55,7 +55,9 @@ const BigTable = (props) => {
 
     }
 
-    const rows = CreateRows(repos, commit);
+    const dati = CreateRows(repos, commit);
+    
+    const rows = dati.filter(repo => repo.cognome.includes(props.searchValue));
 
     return (
         <TableContainer component={Paper} >

@@ -8,7 +8,7 @@ function App() {
   listRepos();
   return (
     <div className="App">
-      <Container  maxWidth='100%' sx={{background: 'rgb(150, 217, 219)', paddingTop: '2%'}} >
+      <Container  maxWidth='100%' sx={{background: 'rgb(150, 217, 219)', paddingTop: '2%', paddingBottom: '7.4%'}} >
         <Title />
         <Content />
       </Container>

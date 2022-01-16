@@ -32,6 +32,7 @@ const Item = (props) => {
 const Content = () => {
     const [repos, setRepos] = useState(undefined);
     const [commit, setCommit] = useState(0);
+    const [searchValue, setSearchValue] = useState('');
 
     useEffect(() => {
         const populateRepos = async () => {
@@ -63,10 +64,10 @@ const Content = () => {
                         >
                             <Item sx={{ gridRow: '1', gridColumn: '1/2', padding: '5%' }}><Totrepos totRepos={repos.length} /></Item>
                             <Item sx={{ gridRow: '1', gridColumn: '2/3', padding: '5%' }}><Filter /></Item>
-                            <Item sx={{ gridRow: '1', gridColumn: '3/4', padding: '5%' }}><Search /></Item>
+                            <Item sx={{ gridRow: '1', gridColumn: '3/4', padding: '5%' }}><Search setSearchValue={setSearchValue}/></Item>
                             <Item sx={{ gridRow: '2', gridColumn: '2/3', padding: '5%' }}><Button variant="outlined" sx={{color: 'black', borderColor: 'black' }} startIcon={<UpdateIcon />} onClick={() => handleLoadClick(commit)}>Aggiorna Repos</Button></Item>
                         </Box>
-                        <BigTable repos={repos} commit={commit} />
+                        <BigTable repos={repos} commit={commit} searchValue={searchValue} />
 
                     </Container>
                 </div>)

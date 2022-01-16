@@ -26,7 +26,6 @@ const Row = (props, key) => {
     const totCommit = props.commit;
     const [open, setOpen] = React.useState(false);
     const id = 'repos' + props.row.id;
-    console.log(id);
 
     return (
         <React.Fragment>
