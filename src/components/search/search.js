@@ -11,7 +11,7 @@ const Search = (props) => {
 
     return (
         <div className='search'>
-            <TextField id="searchButton" label="Cerca" />
+            <TextField onChange={() => OnSearchClick(props)} id="searchButton" label="Cerca" />
             <IconButton onClick={() => OnSearchClick(props)} variant="outlined" sx={{ float: 'right', padding: '4%' }}><SearchIcon fontSize="large" /></IconButton>
         </div>
     )

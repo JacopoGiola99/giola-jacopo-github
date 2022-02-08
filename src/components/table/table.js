@@ -1,63 +1,19 @@
-import { useState, useEffect } from 'react';
-import Row from '../Row/Row';
-import * as React from 'react';
+import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
+import * as React from 'react';
+import { useCreateRows } from '../../hooks/useCreateRows';
+import Row from '../Row/Row';
 
-const createData = (cognome, nome, utenteGithub, nomeRepo, totaleCommit, dataCreazione, ultimoAggiornamento, id) => {
-    return {
-        cognome,
-        nome,
-        utenteGithub,
-        nomeRepo,
-        totaleCommit,
-        dataCreazione,
-        ultimoAggiornamento,
-        id,
-        dettagli: [
-            {
-                cognome,
-                nome,
-                utenteGithub,
-                nomeRepo,
-                totaleCommit,
-                dataCreazione,
-                ultimoAggiornamento,
-            },
-        ],
-    };
-}
+const BigTable = ({repos, commit, searchValue}) => {
 
-const BigTable = (props) => {
-
-    const repos = props.repos;
-
-    const commit = props.commit;
-
-    const CreateRows = (repos, commit) => {
-
-        const [row, setRow] = useState([]);
-
-        useEffect(() => {
-            repos.map((repo, id) => {
-                let temp = createData(repo.surname, repo.name, repo.login, repo.repoName, commit, repo.creationDate, repo.lastUpdate, id);
-                setRow(row => [...row, temp]);
-                return null;
-            })
-        }, [commit, repos])
-
-        return row;
-
-    }
-
-    const dati = CreateRows(repos, commit);
+    const dati = useCreateRows(repos, commit);
     
-    const rows = dati.filter(repo => repo.cognome.includes(props.searchValue));
+    const rows = dati.filter(repo => repo.cognome.includes(searchValue));
 
     return (
         <TableContainer component={Paper} >
@@ -76,7 +32,7 @@ const BigTable = (props) => {
                 </TableHead>
                 <TableBody>
                     {rows.map((row, key) => (
-                        <Row key={key} row={row} commit={commit} />
+                        <Row key={"Row"+key} row={row} commit={commit} />
                     ))}
                 </TableBody>
             </Table>
