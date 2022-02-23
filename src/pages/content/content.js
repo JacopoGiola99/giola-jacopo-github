@@ -69,8 +69,6 @@ const Content = () => {
                             <p>C'è stato un errore</p>
                         }
 
-
-
                     </Container>
                 </div>)
             }

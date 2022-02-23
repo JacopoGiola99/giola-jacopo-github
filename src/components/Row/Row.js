@@ -63,7 +63,7 @@ const Row = (props, key) => {
                     }
                 </TableCell>
             </TableRow>
-            <TableRow key={"d" + id}>
+            <TableRow key={"detail" + id}>
                 <TableCell style={{ paddingBottom: 0, paddingTop: 0, background: 'rgb(222, 142, 73)' }} colSpan={8} >
                     <Collapse in={open} timeout="auto" unmountOnExit >
                         <Table aria-label="dettagli" >
