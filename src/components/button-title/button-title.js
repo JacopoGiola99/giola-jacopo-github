@@ -11,11 +11,11 @@ import ArticleIcon from '@mui/icons-material/Article';
 import { Link } from 'react-router-dom';
 
 const buttons = [
-    <Link to="/login"><Button style={{color:'black'}} key="login" startIcon={<LoginIcon />}></Button></Link>,
-    <Link to="/logout"><Button style={{color:'black'}} key="logout" startIcon={<LogoutIcon />}></Button></Link>,
-    <Link to="/classi"><Button style={{color:'black'}} key="classi" startIcon={<SchoolIcon />}></Button></Link>,
-    <Link to="/utenti"><Button style={{color:'black'}} key="utenti" startIcon={<PersonIcon />}></Button></Link>,
-    <Link to="/repositories"><Button style={{color:'black'}} key="repoTable" startIcon={<ArticleIcon />}></Button></Link>,
+    <Link to="/login"><Button style={{color:'black'}} key="ButtonLogin" startIcon={<LoginIcon />}></Button></Link>,
+    <Link to="/logout"><Button style={{color:'black'}} key="ButtonLogout" startIcon={<LogoutIcon />}></Button></Link>,
+    <Link to="/classi"><Button style={{color:'black'}} key="ButtonClassi" startIcon={<SchoolIcon />}></Button></Link>,
+    <Link to="/utenti"><Button style={{color:'black'}} key="ButtonUtenti" startIcon={<PersonIcon />}></Button></Link>,
+    <Link to="/repositories"><Button style={{color:'black'}} key="ButtonRepoTable" startIcon={<ArticleIcon />}></Button></Link>,
 ];
 
 const ButtonTitle = () => {

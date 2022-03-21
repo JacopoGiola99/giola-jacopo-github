@@ -10,26 +10,18 @@ import { useState, useMemo, useEffect } from "react";
 function App() {
   listRepos();
 
-  const [user, setUser] = useState(false);
+  const [user, setUser] = useState(true);
 
   const session = useMemo(() => ({ user, setUser }), [user, setUser]);
+  console.log(session);
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    const checkSession = async () => {
-      try {
-        if (!session) {
-          navigate('/login');
-        }
-      } catch (error) {
-        console.error(error);
-        throw error;
-      }
+    if (!session.user) {
+      navigate('/login');
     }
-
-    checkSession();
-  })
+  }, [session, navigate])
 
 
   return (

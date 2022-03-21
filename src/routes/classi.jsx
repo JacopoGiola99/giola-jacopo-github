@@ -5,34 +5,27 @@ import UserContext from "../context/userContext";
 
 export default function Classi() {
 
-  const { session, setSession } = useContext(UserContext);
+  const { session } = useContext(UserContext);
   console.log(session);
+
+  const setUser = session.setUser();
 
   let navigate = useNavigate();
 
-  const onLogOutClick = (setSession) => {
-    setSession(false);
+  const onLogOutClick = (setUser) => {
+    setUser(false);
   }
 
   useEffect(() => {
-    const checkSession = async () => {
-      try {
-        if (!session) {
-          navigate('/login');
-        }
-      } catch (error) {
-        console.error(error);
-        throw error;
-      }
+    if (!session.user) {
+      navigate('/login');
     }
-
-    checkSession();
-  })
+  }, [session, navigate])
 
   return (
     <main style={{ padding: "1rem 0" }}>
       <h2>classi</h2>
-      <button onClick={() => onLogOutClick(setSession)}>logout</button>
+      <button onClick={() => onLogOutClick(setUser)}>logout</button>
     </main>
   );
 }

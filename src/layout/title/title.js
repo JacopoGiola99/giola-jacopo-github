@@ -3,6 +3,7 @@
 import ButtonTitle from '../../components/button-title/button-title';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
+import { Link } from 'react-router-dom';
 
 const Item = (props) => {
     const { sx, ...other } = props;
@@ -34,7 +35,7 @@ const Title = () => {
                         gap: 1,
                     }}
                 >
-                    <Item sx={{ gridRow: '1', gridColumn: '0/1', padding: '5%' }}>Logo</Item>
+                    <Link to="/"><Item sx={{ gridRow: '1', gridColumn: '0/1', padding: '5%' }}>Logo</Item></Link>
                     
                     <Item sx={{ gridRow: '1', gridColumn: '4 / 5' }}><ButtonTitle /></Item>
                 </Box>
